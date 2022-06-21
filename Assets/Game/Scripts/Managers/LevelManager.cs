@@ -10,14 +10,17 @@ namespace Game.Scripts.Managers
     public class LevelManager : Observer
     {
         [SerializeField] private GameObject spawPointPrefab;
+        [SerializeField] private SceneScheme sceneData;
         private Vector3 _size;
         private Vector3 _center;
         private Vector3 _oldLocation;
+        private int _currentScene;
         private void Start()
         {
             ObserverManager.Instance.RegisterObserver(this);
             _size = spawPointPrefab.GetComponent<BoxCollider>().size;
             _center = spawPointPrefab.GetComponent<BoxCollider>().center;
+            _currentScene = sceneData.CurrentScene;
         }
         
         public override void OnNotify(NotificationType type)
@@ -26,6 +29,8 @@ namespace Game.Scripts.Managers
             {
                 case NotificationType.GameStart:
                     SetLevel();
+                    break;
+                case NotificationType.LevelChange:
                     break;
             }
         }
@@ -42,6 +47,14 @@ namespace Game.Scripts.Managers
                 obj.transform.SetParent(GameObject.FindGameObjectWithTag("Environment").gameObject.transform);
                 obj.transform.localPosition = SetRandomLocation();
             }
+        }
+
+        private void ChangeLevel()
+        {
+            _currentScene++;
+            sceneData.CurrentScene = _currentScene;
+            sceneData.LoadScene();
+            Destroy(this);
         }
     }
 
