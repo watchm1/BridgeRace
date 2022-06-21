@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Game.Scripts.Managers;
 using UnityEngine;
 
 namespace Game.Scripts.Core.Observer
@@ -7,7 +9,6 @@ namespace Game.Scripts.Core.Observer
     {
         #region ObserverVariables
         private List<Observer> _observers;
-        [SerializeField] private NotificationType type;
         #endregion
         #region RegisterObserver
         public void RegisterObserver(Observer observer)
@@ -17,6 +18,11 @@ namespace Game.Scripts.Core.Observer
             _observers.Add(observer);
         }
         #endregion
+
+        protected virtual void Start()
+        {
+            ObserverManager.Instance.RegisterSubject(this);
+        }
 
         #region NotifyToObservers
 

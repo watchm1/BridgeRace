@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - PlayerBox
+  - Environment
   layers:
   - Default
   - TransparentFX

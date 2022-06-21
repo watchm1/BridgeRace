@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Game.Scripts.Core.Singleton;
 namespace Game.Scripts.Core.Observer
 {
-    public class ObserverManager : SingletonPersistent<ObserverManager>
+    public class ObserverManager : Singleton<ObserverManager>
     {
         #region Variables
         private List<Subject> _subjects;
