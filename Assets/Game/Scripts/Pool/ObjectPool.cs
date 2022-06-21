@@ -17,8 +17,7 @@ namespace Game.Scripts.Pool
             public List<GameObject> pooledObject;
             public GameObject objectPrefab;
         }
-
-        [Space(60)]
+        
         [SerializeField] private Pool[] pools;
         private void Awake()
         {
@@ -46,7 +45,7 @@ namespace Game.Scripts.Pool
                 if (pools[objectType].pooledObject.Count <= 0)
                 {
                     GameObject obj = Instantiate(pools[objectType].objectPrefab);
-                    obj.transform.parent = this.transform;
+                    obj.transform.SetParent(transform);
                     obj.SetActive(true);
                     return obj;
                 }

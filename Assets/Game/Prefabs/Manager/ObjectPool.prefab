@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7744350652259760358}
   - component: {fileID: 3126206215281998942}
+  - component: {fileID: 2573292123248717173}
   m_Layer: 0
   m_Name: ObjectPool
   m_TagString: Untagged
@@ -45,6 +46,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - pooledObject: []
+  - poolSize: 0
+    pooledObject: []
     objectPrefab: {fileID: 5922304225667651399, guid: 99e6106b8a2b1144cb5dc7f6d7fb6e06, type: 3}
-    poolSize: 0
+  - poolSize: 0
+    pooledObject: []
+    objectPrefab: {fileID: 7717164286530473629, guid: 25d2b99c679eac54b903cea3c8c14962, type: 3}
+  - poolSize: 15
+    pooledObject: []
+    objectPrefab: {fileID: 1492386245763289996, guid: bd1b11fbf182a3b40812be74572d5082, type: 3}
+--- !u!114 &2573292123248717173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7744350652259760353}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b3f87a0711f9e54cae84e2db2494236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pool: {fileID: 0}

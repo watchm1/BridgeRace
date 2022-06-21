@@ -10,14 +10,12 @@ namespace Game.Scripts.Managers
     public class LevelManager : Observer
     {
         [SerializeField] private GameObject spawPointPrefab;
-        [SerializeField] private ObjectPool pool;
         private Vector3 _size;
         private Vector3 _center;
         private Vector3 _oldLocation;
         private void Start()
         {
             ObserverManager.Instance.RegisterObserver(this);
-            pool = FindObjectOfType<ObjectPool>();
             _size = spawPointPrefab.GetComponent<BoxCollider>().size;
             _center = spawPointPrefab.GetComponent<BoxCollider>().center;
         }
@@ -40,7 +38,7 @@ namespace Game.Scripts.Managers
         {
             for (int i = 0; i < 15; i++)
             {
-                var obj = pool.GetObjectFromPool(0);
+                var obj = PoolManager.Instance.pool.GetObjectFromPool(0);
                 obj.transform.SetParent(GameObject.FindGameObjectWithTag("Environment").gameObject.transform);
                 obj.transform.localPosition = SetRandomLocation();
             }

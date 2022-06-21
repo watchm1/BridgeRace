@@ -13,7 +13,6 @@ namespace Game.Scripts.Player
     {
         [SerializeField] private GameObject parentLocation;
         [SerializeField] private List<GameObject> ownedBoxes;
-        [SerializeField] private ObjectPool pool;
 
         private GameObject _boxFirstLocation;
 
@@ -22,7 +21,6 @@ namespace Game.Scripts.Player
             base.Start();
             ownedBoxes = new List<GameObject>();
             _boxFirstLocation = parentLocation.transform.GetChild(0).gameObject;
-            pool = FindObjectOfType<ObjectPool>();
         }
 
        
@@ -36,6 +34,10 @@ namespace Game.Scripts.Player
             else if (other.CompareTag("BridgeArea"))
             {
                 DropObject();
+            }
+            else if(other.CompareTag("LevelEnd"))
+            {
+                 Notify(NotificationType.LevelChange);
             }
         }
 
@@ -52,7 +54,7 @@ namespace Game.Scripts.Player
             if (ownedBoxes.Count > 0)
             {
                 var obj = ownedBoxes[ownedBoxes.Count - 1];
-                pool.ReturnObjectToPool(0, obj);
+                PoolManager.Instance.pool.ReturnObjectToPool(0, obj);
                 ownedBoxes.Remove(obj);
                 _boxFirstLocation.transform.position -= new Vector3(0, 1.5f, 0);
                 Notify(NotificationType.Crafting);

@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - PlayerBox
   - Environment
+  - BridgeArea
+  - LevelEnd
   layers:
   - Default
   - TransparentFX
