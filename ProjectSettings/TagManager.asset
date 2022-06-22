@@ -9,6 +9,7 @@ TagManager:
   - Environment
   - BridgeArea
   - LevelEnd
+  - BridgeAreaStairs
   layers:
   - Default
   - TransparentFX

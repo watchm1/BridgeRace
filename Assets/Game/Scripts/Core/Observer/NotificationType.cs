@@ -5,9 +5,12 @@ namespace Game.Scripts.Core.Observer
     {
         GameStart,
         PlayerDead,
-        Crafting,
+        PlayerCrafting,
         GameEnd,
         LevelChange,
-        SpawnBoxes,
+        EnemyCrafting,
+        PlayerCraftStairs,
+        EnemyCraftStairs
+        
     }
 }

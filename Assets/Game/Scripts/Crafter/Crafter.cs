@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Core.Observer;
 using Game.Scripts.Managers;
-using Game.Scripts.Pool;
 using UnityEngine;
 
 namespace Game.Scripts.Crafter
@@ -11,7 +8,7 @@ namespace Game.Scripts.Crafter
     public class Crafter : Observer
     {
         [SerializeField] private List<GameObject> bridgePieces;
-        private float _spaceBetweenPieces = 0.3f;
+        private float _spaceBetweenPieces = 0.4f;
 
         private void Start()
         {
@@ -20,16 +17,14 @@ namespace Game.Scripts.Crafter
             transform.SetParent(GameObject.FindGameObjectWithTag("Environment").transform);
         }
 
-        private void Craft(GameObject bridgePiece)
+        private void Craft(GameObject bridgePiece, float y)
         {
             bridgePieces.Add(bridgePiece);
-            bridgePiece.transform.localPosition = new Vector3(transform.position.x, transform.position.y -_spaceBetweenPieces,
+            bridgePiece.transform.localPosition = new Vector3(transform.position.x, transform.position.y -_spaceBetweenPieces -0.1f,
                 transform.position.z + bridgePiece.transform.localScale.z + _spaceBetweenPieces);
-            transform.position += new Vector3(0f, 0f, bridgePiece.transform.localScale.z + _spaceBetweenPieces);
-            
-            
+            transform.position += new Vector3(0f, y, bridgePiece.transform.localScale.z + _spaceBetweenPieces);
         }
-
+        
         private void ReturnAllPiecesToPool()
         {
             foreach (var item in bridgePieces)
@@ -41,8 +36,11 @@ namespace Game.Scripts.Crafter
         {
             switch (type)
             {
-                case NotificationType.Crafting:
-                    Craft(PoolManager.Instance.pool.GetObjectFromPool(2));
+                case NotificationType.PlayerCrafting:
+                    Craft(PoolManager.Instance.pool.GetObjectFromPool(2), 0);
+                    break;
+                case NotificationType.PlayerCraftStairs:
+                    Craft(PoolManager.Instance.pool.GetObjectFromPool(2), 0.5f);
                     break;
                 case NotificationType.LevelChange:
                     ReturnAllPiecesToPool();

@@ -18,7 +18,7 @@ namespace Game.Scripts.Pool
             public GameObject objectPrefab;
         }
         
-        [SerializeField] private Pool[] pools;
+        [SerializeField] public Pool[] pools;
         private void Awake()
         {
             for (int i = 0; i < pools.Length; i++)

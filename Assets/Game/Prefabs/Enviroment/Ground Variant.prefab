@@ -397,7 +397,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6877153104986640256, guid: 4851c68d85c64ac459ba5bf69c7eaa00, type: 3}
       propertyPath: m_Name
-      value: Ground
+      value: Ground Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6877153104986640316, guid: 4851c68d85c64ac459ba5bf69c7eaa00, type: 3}
       propertyPath: m_RootOrder

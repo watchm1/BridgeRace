@@ -33,7 +33,11 @@ namespace Game.Scripts.Player
             }
             else if (other.CompareTag("BridgeArea"))
             {
-                DropObject();
+                DropObject(NotificationType.PlayerCrafting);
+            }
+            else if (other.CompareTag("BridgeAreaStairs"))
+            {
+                DropObject(NotificationType.PlayerCraftStairs);
             }
             else if(other.CompareTag("LevelEnd"))
             {
@@ -49,7 +53,7 @@ namespace Game.Scripts.Player
             target.transform.position += new Vector3(0, 1.5f, 0);
         }
 
-        private void DropObject()
+        private void DropObject(NotificationType type)
         {
             if (ownedBoxes.Count > 0)
             {
@@ -57,7 +61,7 @@ namespace Game.Scripts.Player
                 PoolManager.Instance.pool.ReturnObjectToPool(0, obj);
                 ownedBoxes.Remove(obj);
                 _boxFirstLocation.transform.position -= new Vector3(0, 1.5f, 0);
-                Notify(NotificationType.Crafting);
+                Notify(type);
             }
         }
     }
