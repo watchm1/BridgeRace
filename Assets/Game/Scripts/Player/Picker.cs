@@ -15,12 +15,13 @@ namespace Game.Scripts.Player
         [SerializeField] private List<GameObject> ownedBoxes;
 
         private GameObject _boxFirstLocation;
-
+        private bool _canCraft;
         protected override void Start()
         {
             base.Start();
             ownedBoxes = new List<GameObject>();
             _boxFirstLocation = parentLocation.transform.GetChild(0).gameObject;
+            _canCraft = true;
         }
 
        
@@ -43,6 +44,12 @@ namespace Game.Scripts.Player
             {
                  Notify(NotificationType.LevelChange);
             }
+            else if (other.CompareTag("CraftAreaEnd"))
+            {
+                _canCraft = false;
+                Notify(NotificationType.PlayerCraftDone);
+                other.gameObject.SetActive(false);
+            }
         }
 
         private void PickObject(GameObject obj, GameObject target, GameObject parent)
@@ -55,13 +62,16 @@ namespace Game.Scripts.Player
 
         private void DropObject(NotificationType type)
         {
-            if (ownedBoxes.Count > 0)
+            if (_canCraft)
             {
-                var obj = ownedBoxes[ownedBoxes.Count - 1];
-                PoolManager.Instance.pool.ReturnObjectToPool(0, obj);
-                ownedBoxes.Remove(obj);
-                _boxFirstLocation.transform.position -= new Vector3(0, 1.5f, 0);
-                Notify(type);
+                if (ownedBoxes.Count > 0)
+                {
+                    var obj = ownedBoxes[ownedBoxes.Count - 1];
+                    PoolManager.Instance.pool.ReturnObjectToPool(0, obj);
+                    ownedBoxes.Remove(obj);
+                    _boxFirstLocation.transform.position -= new Vector3(0, 1.5f, 0);
+                    Notify(type);
+                }
             }
         }
     }

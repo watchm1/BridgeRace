@@ -10,7 +10,9 @@ namespace Game.Scripts.Core.Observer
         LevelChange,
         EnemyCrafting,
         PlayerCraftStairs,
-        EnemyCraftStairs
-        
+        EnemyCraftStairs,
+        PlayerCraftDone,
+        EnemyCraftDone,
+
     }
 }
