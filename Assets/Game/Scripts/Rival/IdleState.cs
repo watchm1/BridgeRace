@@ -9,6 +9,9 @@ namespace Game.Scripts.Rival
     {
         public override void Execute(NPC npc)
         {
+            // change run to box state
+            // Run To Craft state
+            // DieState 
             npc.ChangeState(null);
         }
     }

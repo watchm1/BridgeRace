@@ -1,12 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Networking;
+using Game.Scripts.Core.Singleton;
 
 namespace Game.Scripts.Core.AI
 {
-    public class NPC : MonoBehaviour
+    public abstract class NPC : Singleton<NPC>
     {
         private AIState _currentState;
         private bool _result;

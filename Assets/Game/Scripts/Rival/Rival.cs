@@ -7,6 +7,5 @@ namespace Game.Scripts.Rival
 {
     public class Rival : NPC
     {
-        
     }
 }
