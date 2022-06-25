@@ -10,7 +10,8 @@ namespace Game.Scripts.Rival
         private bool picked = false;
         public override void EnterState(Npc npc)
         {
-          Debug.Log("picked"); 
+          Debug.Log("picked");
+          picked = false;
         }
 
         public override void UpdateState(Npc npc)
@@ -21,13 +22,13 @@ namespace Game.Scripts.Rival
             }
             else
             {
-                if (npc.ownedBox.Count < 5)
+                if (npc.ownedBox.Count < 15 && picked)
                 {
                     npc.ChangeState(npc.SearchBoxState);
                 }
                 else
                 {
-                    npc.ChangeState(npc.CraftState);
+                    npc.ChangeState(npc.MoveToCraftState);
                 }
             }
         }
@@ -41,7 +42,11 @@ namespace Game.Scripts.Rival
             collision.transform.DOLocalJump(npc.boxFirstLocation.transform.localPosition, 0.7f, 1, 0.3f);
             npc.boxFirstLocation.transform.position += new Vector3(0, 1.5f, 0);
             picked = true;
-            npc.ownedBox[npc.ownedBox.Count -1].transform.localRotation = Quaternion.Euler(new Vector3(0,0,0)); 
+            collision.transform.localRotation = Quaternion.Euler(new Vector3(0,0,0));
+            collision.GetComponent<Collider>().enabled = false;
+            npc.detector.isInsideArea = false;
+            npc.detector.areaObj = null;
+            npc.detector.GetComponent<Collider>().enabled = true;
 
         }
         public override void OnTriggerEnter(Npc npc, GameObject collision)

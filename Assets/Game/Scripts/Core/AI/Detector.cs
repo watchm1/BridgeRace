@@ -6,10 +6,10 @@ namespace Game.Scripts.Core.AI
     public class Detector : MonoBehaviour
     {
         public bool isInsideArea;
-
+        public GameObject areaObj;
         private void Start()
         {
-            
+            areaObj = null;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -17,6 +17,7 @@ namespace Game.Scripts.Core.AI
             if (other.CompareTag("EnemyBox"))
             {
                 isInsideArea = true;
+                areaObj = other.gameObject;
             }
         }
 
@@ -25,6 +26,7 @@ namespace Game.Scripts.Core.AI
             if (other.CompareTag("EnemyBox"))
             {
                 isInsideArea = false;
+                areaObj = other.gameObject;
             }
         }
 

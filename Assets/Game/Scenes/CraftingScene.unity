@@ -1044,6 +1044,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerController
       objectReference: {fileID: 0}
+    - target: {fileID: 7744304610272517322, guid: 6273e3ad1ad46444cbfe0cf94025d1b7, type: 3}
+      propertyPath: levelEnd
+      value: LevelEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744304610272517322, guid: 6273e3ad1ad46444cbfe0cf94025d1b7, type: 3}
+      propertyPath: targetBox
+      value: PlayerBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744304610272517322, guid: 6273e3ad1ad46444cbfe0cf94025d1b7, type: 3}
+      propertyPath: craftEndArea
+      value: CraftAreaEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744304610272517322, guid: 6273e3ad1ad46444cbfe0cf94025d1b7, type: 3}
+      propertyPath: levelEndArea
+      value: CraftEndArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744304610272517322, guid: 6273e3ad1ad46444cbfe0cf94025d1b7, type: 3}
+      propertyPath: targetBridgeArea
+      value: BridgeArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 7744304610272517322, guid: 6273e3ad1ad46444cbfe0cf94025d1b7, type: 3}
+      propertyPath: targetBridgeStairsArea
+      value: BridgeAreaStairs
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6273e3ad1ad46444cbfe0cf94025d1b7, type: 3}
 --- !u!1 &1448680959
@@ -1917,6 +1941,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 582541330}
     m_Modifications:
+    - target: {fileID: 2573292123248717173, guid: 2ed19fd9d815ed84d96d75aa0f90a591, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3126206215281998942, guid: 2ed19fd9d815ed84d96d75aa0f90a591, type: 3}
       propertyPath: pools.Array.size
       value: 3

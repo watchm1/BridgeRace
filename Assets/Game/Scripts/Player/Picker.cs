@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using DG.Tweening;
 using Game.Scripts.Core.Observer;
 using Game.Scripts.Managers;
-using Game.Scripts.Pool;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Game.Scripts.Player
 {
@@ -13,9 +14,13 @@ namespace Game.Scripts.Player
     {
         [SerializeField] private GameObject parentLocation;
         [SerializeField] private List<GameObject> ownedBoxes;
-    
         private GameObject _boxFirstLocation;
         private bool _canCraft;
+        [FormerlySerializedAs("TargetBox")] [SerializeField]private string targetBox;
+        [FormerlySerializedAs("TargetBridgeArea")] [SerializeField]private string targetBridgeArea;
+        [FormerlySerializedAs("TargetBridgeStairsArea")] [SerializeField]private string targetBridgeStairsArea;
+        [FormerlySerializedAs("CraftEndArea")] [SerializeField]private string craftEndArea;
+        [FormerlySerializedAs("LevelEnd")] [SerializeField] private string levelEnd;
         protected override void Start()
         {
             base.Start();
@@ -23,28 +28,25 @@ namespace Game.Scripts.Player
             _boxFirstLocation = parentLocation.transform.GetChild(0).gameObject;
             _canCraft = true;
         }
-
-       
-
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("PlayerBox"))
+            if (other.CompareTag(targetBox))
             {
                 PickObject(other.gameObject, _boxFirstLocation, parentLocation);
             }
-            else if (other.CompareTag("BridgeArea"))
+            else if (other.CompareTag(targetBridgeArea))
             {
                 DropObject(NotificationType.PlayerCrafting);
             }
-            else if (other.CompareTag("BridgeAreaStairs"))
+            else if (other.CompareTag(targetBridgeStairsArea))
             {
                 DropObject(NotificationType.PlayerCraftStairs);
             }
-            else if(other.CompareTag("LevelEnd"))
+            else if(other.CompareTag(levelEnd))
             {
                  Notify(NotificationType.LevelChange);
             }
-            else if (other.CompareTag("CraftAreaEnd"))
+            else if (other.CompareTag(craftEndArea))
             {
                 _canCraft = false;
                 Notify(NotificationType.PlayerCraftDone);

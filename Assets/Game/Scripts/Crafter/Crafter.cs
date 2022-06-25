@@ -15,7 +15,6 @@ namespace Game.Scripts.Crafter
 
         private void Start()
         {
-			
             ObserverManagment.Instance.RegisterObserver(this);
             bridgePieces = new List<GameObject>();
             transform.SetParent(GameObject.FindGameObjectWithTag("Environment").transform);
