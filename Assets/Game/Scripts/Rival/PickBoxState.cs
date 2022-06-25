@@ -10,7 +10,7 @@ namespace Game.Scripts.Rival
         private bool picked = false;
         public override void EnterState(Npc npc)
         {
-          Debug.Log("picked");
+          
           picked = false;
         }
 
@@ -36,7 +36,7 @@ namespace Game.Scripts.Rival
         private void PickObject(Npc npc, GameObject collision)
         {
             
-            Debug.Log("fonksiyon çalıştı"); 
+            
             npc.ownedBox.Add(collision);
             collision.transform.SetParent(npc.stackLocation.transform);
             collision.transform.DOLocalJump(npc.boxFirstLocation.transform.localPosition, 0.7f, 1, 0.3f);

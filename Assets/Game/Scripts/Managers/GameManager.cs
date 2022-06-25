@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Core.Observer;
+using Game.Scripts.Core.AI;
 using UnityEngine;
 
 namespace Game.Scripts.Managers
@@ -12,15 +13,17 @@ namespace Game.Scripts.Managers
         protected override void Start()
         {
             base.Start();
+            FindObjectOfType<Npc>().enabled = true;
+            
         }
         
         private void Update()
         {
             if (_count == 0)
             {
-                Notify(NotificationType.GameStart);
                 _count++;
-                Debug.Log("start verildi");
+                Notify(NotificationType.GameStart);
+                Debug.Log("update çalıştı");
             }
                
         }

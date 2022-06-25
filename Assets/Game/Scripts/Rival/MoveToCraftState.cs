@@ -7,7 +7,7 @@ namespace Game.Scripts.Rival
     {
         public override void EnterState(Npc npc)
         {
-            Debug.Log("craft alanında");
+           
         }
 
         public override void UpdateState(Npc npc)

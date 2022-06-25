@@ -1,15 +1,14 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Game.Scripts.Core.Singleton;
 using Game.Scripts.Pool;
-using UnityEngine;
 
-public class PoolManager : Singleton<PoolManager>
+namespace Game.Scripts.Managers
 {
-    public ObjectPool pool;
-    private void Start()
+    public class PoolManager : Singleton<PoolManager>
     {
-        pool = FindObjectOfType<ObjectPool>();
+        public ObjectPool pool;
+        private void Start()
+        {
+            pool = FindObjectOfType<ObjectPool>();
+        }
     }
 }

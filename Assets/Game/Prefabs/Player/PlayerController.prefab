@@ -253,6 +253,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentLocation: {fileID: 2491582036759806960}
   ownedBoxes: []
+  targetBox: PlayerBox
+  targetBridgeArea: BridgeArea
+  targetBridgeStairsArea: BridgeAreaStairs
+  craftEndArea: CraftAreaEnd
+  levelEnd: LevelEnd
 --- !u!1 &5958378397961401459
 GameObject:
   m_ObjectHideFlags: 0

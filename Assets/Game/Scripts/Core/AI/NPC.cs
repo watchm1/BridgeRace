@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Game.Scripts.Rival;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -17,7 +16,7 @@ namespace Game.Scripts.Core.AI
        public GameObject boxFirstLocation;
        public float radius;
 
-       [SerializeField] private BaseState _currentState;
+       private BaseState _currentState;
        [SerializeField] private Rigidbody rb;
        private bool _touched;
        #region State's references 
@@ -27,10 +26,8 @@ namespace Game.Scripts.Core.AI
               public BaseState PickBoxState = new PickBoxState();
               public BaseState MoveToCraftState = new MoveToCraftState();
               public BaseState SearchBoxState = new SearchBoxState();
-              
-      
-      
-      #endregion
+
+              #endregion
 
       private void Awake()
       {
@@ -38,11 +35,11 @@ namespace Game.Scripts.Core.AI
           stackLocation = GameObject.FindGameObjectWithTag("Stack");
           ownedBox = new List<GameObject>();
           boxFirstLocation = stackLocation.transform.GetChild(0).gameObject;
+          _currentState = SearchBoxState;
       }
 
       private void Start()
       {
-          _currentState = SearchBoxState;
           _currentState.EnterState(this);
           detector = FindObjectOfType<Detector>();
           _touched = false;
@@ -75,7 +72,6 @@ namespace Game.Scripts.Core.AI
           {
               _touched = true;
               _currentState.OnTriggerEnter(this, other.gameObject);
-              Debug.Log(_currentState);
           }
       }
 #if UNITY_EDITOR
