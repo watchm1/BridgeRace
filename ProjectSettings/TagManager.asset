@@ -11,6 +11,10 @@ TagManager:
   - LevelEnd
   - BridgeAreaStairs
   - CraftAreaEnd
+  - Detector
+  - EnemyBox
+  - Stack
+  - Enemy
   layers:
   - Default
   - TransparentFX

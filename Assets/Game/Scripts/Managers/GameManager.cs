@@ -20,6 +20,7 @@ namespace Game.Scripts.Managers
             {
                 Notify(NotificationType.GameStart);
                 _count++;
+                Debug.Log("start verildi");
             }
                
         }

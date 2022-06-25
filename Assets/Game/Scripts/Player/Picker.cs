@@ -13,7 +13,7 @@ namespace Game.Scripts.Player
     {
         [SerializeField] private GameObject parentLocation;
         [SerializeField] private List<GameObject> ownedBoxes;
-
+    
         private GameObject _boxFirstLocation;
         private bool _canCraft;
         protected override void Start()

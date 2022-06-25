@@ -8,8 +8,8 @@ namespace Game.Scripts.Pool
     
     public class ObjectPool : MonoBehaviour
     {
-
-        #region PoolStruct
+		// pool struct		
+		#region PoolStruct
         [System.Serializable]
         public struct Pool
         {

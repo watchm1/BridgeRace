@@ -21,7 +21,7 @@ namespace Game.Scripts.Managers
             ObserverManager.Instance.RegisterObserver(this);
             _size = spawPointPrefab.GetComponent<BoxCollider>().size;
             _center = spawPointPrefab.GetComponent<BoxCollider>().center;
-            _currentScene = sceneData.CurrentScene;
+            //_currentScene = sceneData.CurrentScene;
             environmentObj = GameObject.FindGameObjectWithTag("Environment");
         }
         

@@ -3,7 +3,15 @@ using System.Collections.Generic;
 using Game.Scripts.Core.AI;
 using UnityEngine;
 
-public abstract class AIState 
+namespace Game.Scripts.Core.AI
 {
-    public abstract void Execute(NPC npc);
+    
+    public abstract class BaseState
+    {
+        public abstract void EnterState(Npc npc);
+        public abstract void UpdateState(Npc npc);
+        public abstract void OnTriggerEnter(Npc npc, GameObject obj);
+
+    }
 }
+    

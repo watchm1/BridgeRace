@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Game.Scripts.Crafter
 {
+	
     public class Crafter : Observer
     {
         [SerializeField] private List<GameObject> bridgePieces;
@@ -14,17 +15,20 @@ namespace Game.Scripts.Crafter
 
         private void Start()
         {
+			
             ObserverManagment.Instance.RegisterObserver(this);
             bridgePieces = new List<GameObject>();
             transform.SetParent(GameObject.FindGameObjectWithTag("Environment").transform);
             _canCraft = true;
         }
+		
         private void Craft(GameObject bridgePiece, float y)
         {
             if (CanCraft())
             {
                 bridgePieces.Add(bridgePiece);
-                bridgePiece.transform.localPosition = new Vector3(transform.position.x, transform.position.y -_spaceBetweenPieces -0.1f,
+                bridgePiece.transform.localPosition = new Vector3(transform.position.x, transform.position.y -
+						_spaceBetweenPieces -0.1f,
                     transform.position.z + bridgePiece.transform.localScale.z + _spaceBetweenPieces);
                 transform.position += new Vector3(0f, y, bridgePiece.transform.localScale.z + _spaceBetweenPieces);
             }
@@ -42,7 +46,7 @@ namespace Game.Scripts.Crafter
             return _canCraft;
         }
 
-        private void SetBool()
+		private void SetBool()
         {
             _canCraft = false;
             gameObject.SetActive(false);
