@@ -35,8 +35,6 @@ namespace Game.Scripts.Rival
 
         private void PickObject(Npc npc, GameObject collision)
         {
-            
-            
             npc.ownedBox.Add(collision);
             collision.transform.SetParent(npc.stackLocation.transform);
             collision.transform.DOLocalJump(npc.boxFirstLocation.transform.localPosition, 0.7f, 1, 0.3f);
@@ -47,7 +45,6 @@ namespace Game.Scripts.Rival
             npc.detector.isInsideArea = false;
             npc.detector.areaObj = null;
             npc.detector.GetComponent<Collider>().enabled = true;
-
         }
         public override void OnTriggerEnter(Npc npc, GameObject collision)
         {

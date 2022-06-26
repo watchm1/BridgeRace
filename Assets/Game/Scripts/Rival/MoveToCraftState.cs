@@ -12,7 +12,6 @@ namespace Game.Scripts.Rival
              Debug.Log(BridgeArea.name);
             
         }
-
         public override void UpdateState(Npc npc)
         {
            
