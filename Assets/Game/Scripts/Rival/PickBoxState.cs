@@ -22,7 +22,7 @@ namespace Game.Scripts.Rival
             }
             else
             {
-                if (npc.ownedBox.Count < 15 && picked)
+                if (npc.ownedBox.Count < 4 && picked)
                 {
                     npc.ChangeState(npc.SearchBoxState);
                 }

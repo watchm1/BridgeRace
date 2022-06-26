@@ -23,7 +23,7 @@ namespace Game.Scripts.Managers
             {
                 _count++;
                 Notify(NotificationType.GameStart);
-                Debug.Log("update çalıştı");
+        
             }
                
         }

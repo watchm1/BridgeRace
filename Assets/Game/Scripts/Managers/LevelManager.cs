@@ -32,7 +32,7 @@ namespace Game.Scripts.Managers
             {
                 case NotificationType.GameStart:
                 {
-                    Debug.Log("kaç kere çalıştı");
+                    
                     SetLevel();
                     break;
                 }
@@ -40,9 +40,6 @@ namespace Game.Scripts.Managers
                     break;
                 case NotificationType.PlayerCrafting:
                     RespawnBox(0);
-                    break;
-                case NotificationType.EnemyCrafting:
-                    RespawnBox(1);
                     break;
             }
         }
@@ -59,7 +56,7 @@ namespace Game.Scripts.Managers
         }
         private void SetLevel()
         {
-            for (int i = 0; i < 5; i++)
+            for (int i = 0; i < 15; i++)
             {
                 var obj = PoolManager.Instance.pool.GetObjectFromPool(Calculate.RandomChoices(2));
                 obj.transform.SetParent(environmentObj.transform);
